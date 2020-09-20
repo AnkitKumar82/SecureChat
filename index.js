@@ -3,6 +3,7 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 var cors = require('cors');
+const path = require('path');
 const cookieParser = require("cookie-parser");
 let ConnectService = require("./Service/Connect.js");
 let DataTranferService = require("./Service/Data.js");
@@ -12,6 +13,14 @@ io.origins('*:*');
 app.use(express.urlencoded());
 
 app.use(express.json());
+
+//Serve static files in production mode
+if(process.env.NODE_ENV === "production"){
+	app.use(express.static('client/build'));
+	app.get('*',(req,res)=>{
+		res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+	});
+}
 io.on("connection",(socket)=>{
   	socket.on("connect_request",(body)=>{
     	ConnectService.connectRequest(body,socket,io);
