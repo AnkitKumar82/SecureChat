@@ -45,14 +45,18 @@ class Main extends Component {
         this.scrollToBottom();
     }
     componentWillReceiveProps(props){
+        if(this.state.otherSocketId!==props.otherSocketId){
+            this.setState({
+                allData:[]
+            });
+        }
         this.setState({
             publicKey:props.publicKey,
             privateKey:props.privateKey,
             otherPublicKey:props.otherPublicKey,
-            otherSocketId:props.otherSocketId
+            otherSocketId:props.otherSocketId,
         });
     }
-    //npx react-codemod rename-unsafe-lifecycles
     handleChange(e){
         this.setState({
             currentData:e.target.value

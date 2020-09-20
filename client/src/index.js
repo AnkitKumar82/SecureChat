@@ -11,6 +11,7 @@ import Main from "./components/Main";
 import Connect from "./components/Connect";
 import io from "socket.io-client";
 import { RSA } from 'hybrid-crypto-js';
+//const myServerAddr = 'http://localhost:5000';
 class App extends Component {
   constructor(props){
         super(props);
