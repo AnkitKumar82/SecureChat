@@ -38,6 +38,6 @@ io.on("connection",(socket)=>{
     	DataTranferService.dataTransfer(body,socket,io);
   	});
 });
-server.listen(5000,()=>{
-  	console.log("Server is listening on 5000");
+server.listen(process.env.PORT || 5000,()=>{
+  	console.log("Server is listening on",process.env.PORT || 5000);
 });
