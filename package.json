@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client-install": "npm install --prefix client",
-    "start":"node index.js",
+    "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
@@ -24,7 +24,6 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
     "socket.io": "^2.3.0",
-    "socket.io-p2p-server": "^1.2.0",
-    "uniqid": "^5.2.0"
+    "socket.io-p2p-server": "^1.2.0"
   }
 }

@@ -11,13 +11,11 @@ import Main from "./components/Main";
 import Connect from "./components/Connect";
 import io from "socket.io-client";
 import { RSA } from 'hybrid-crypto-js';
-const port = process.env.REACT_APP_PORT || 5000;
-const myServerAddr = `http://localhost:${port}`;
 class App extends Component {
   constructor(props){
         super(props);
         this.state = {
-            socket: io(myServerAddr),
+            socket: io('/'),
             publicKey : '',
             privatekey : '',
             otherSocketId : -1,
